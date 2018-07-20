@@ -2,7 +2,7 @@ version: 2
 jobs:
     build-and-test-dmd:
         docker:
-            - dlang2/dmd-circleci:2.078.0
+            - image: dlang2/dmd-circleci:2.078.0
         steps:
             - checkout
             - run: make test
@@ -11,7 +11,7 @@ jobs:
                 path: build/
     build-and-test-ldc:
         docker:
-            - dlang2/ldc-circleci:1.10.0
+            - image: dlang2/ldc-circleci:1.10.0
         steps:
             - checkout
             - run: DCC=ldc make test
