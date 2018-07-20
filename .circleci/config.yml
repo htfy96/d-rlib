@@ -15,7 +15,7 @@ jobs:
             - image: dlang2/ldc-circleci:1.10.0
         steps:
             - checkout
-            - run: sudo ls /dlang/ldc-1.10.0/bin /dlang/ldc-1.10.0/etc /dlang/ldc-1.10.1/import -al # don't know why this works
+            - run: sudo ls /dlang/ldc-1.10.0/bin /dlang/ldc-1.10.0/etc /dlang/ldc-1.10.0/import /dlang/ldc-1.10.0/lib -al # don't know why this works
             - run: DCC=ldc2 make test
             - run: DCC=ldc2 make build && ./check-no-und-symbols.sh
             - store_artifacts:
