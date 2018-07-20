@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+d-rlib.so
+d-rlib.dylib
+d-rlib.dll
+d-rlib.a
+d-rlib.lib
+d-rlib-test-*
+*.exe
+*.o
+*.obj
+*.lst
+/build
+*.a

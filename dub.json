@@ -1,0 +1,40 @@
+{
+	"name": "d-rlib",
+	"authors": [
+		"Zheng Luo"
+	],
+	"description": "A minimal memcpy/memcmp/memset implementation in D",
+	"copyright": "Copyright © 2018, Zheng Luo",
+	"license": "BSL-1.0",
+	"targetPath": "build",
+	"buildTypes": {
+		"debug": {
+			"dflags": ["-betterC"],
+			"lflags": ["-nodefaultlibs", "-nostdlib", "-nostdinc", "-nostartfiles"],
+			"buildOptions": ["debugInfo"]
+		},
+		"release": {
+			"dflags": ["-betterC"],
+			"lflags": ["-nodefaultlibs", "-nostdlib", "-nostdinc", "-nostartfiles"],
+			"buildOptions": ["noBoundsCheck", "releaseMode", "optimize", "inline"]
+		},
+		"unittest": {
+			"dflags": ["-betterC"],
+			"buildOptions": ["noBoundsCheck", "debugInfo"],
+			"lflags": ["-nodefaultlibs", "-nostdlib", "-nostdinc", "-nostartfiles"]
+		}
+	},
+	"configurations": [
+		{
+			"name": "default",
+			"targetType": "staticLibrary"
+		},
+		{
+			"name": "unittest",
+			"targetType": "staticLibrary",
+			"sourcePaths": ["source", "test"],
+			"postBuildCommands": ["./linktest.sh"],
+			"targetName": "test"
+		}
+	]
+}
