@@ -5,7 +5,7 @@ import rlib;
 @nogc:
 nothrow:
 
-@safe
+@trusted
 extern(C)
 void main(int argc, char** argv) {
     ubyte[365] buf = 2;
