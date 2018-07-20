@@ -1,0 +1,29 @@
+version: 2
+jobs:
+    build-and-test-dmd:
+        docker:
+            - dlang2/dmd-circleci:2.078.0
+        steps:
+            - checkout
+            - run: make test
+            - run: make build && ./check-no-und-symbols.sh
+            - store_artifacts:
+                path: build/
+    build-and-test-ldc:
+        docker:
+            - dlang2/ldc-circleci:1.10.0
+        steps:
+            - checkout
+            - run: DCC=ldc make test
+            - run: DCC=ldc make build && ./check-no-und-symbols.sh
+            - store_artifacts:
+                path: build/
+workflows:
+    version: 2
+    build-and-test:
+        jobs:
+            - build-and-test-dmd
+            - build-and-test-ldc
+
+
+
