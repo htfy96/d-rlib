@@ -5,6 +5,7 @@ jobs:
             - image: dlang2/dmd-circleci:2.078.0
         steps:
             - checkout
+            - run: sudo ls /dlang/ldc-1.10.0/bin -al # don't know why this works
             - run: make test
             - run: make build && ./check-no-und-symbols.sh
             - store_artifacts:
@@ -14,6 +15,7 @@ jobs:
             - image: dlang2/ldc-circleci:1.10.0
         steps:
             - checkout
+            - run: sudo ls /dlang/ldc-1.10.0/bin -al # don't know why this works
             - run: DCC=ldc make test
             - run: DCC=ldc make build && ./check-no-und-symbols.sh
             - store_artifacts:
