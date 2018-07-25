@@ -10,16 +10,19 @@
 	"buildTypes": {
 		"debug": {
 			"dflags": ["-betterC"],
+            "dflags-ldc": ["-disable-simplify-libcalls"],
 			"lflags": ["-nodefaultlibs", "-nostdlib", "-nostdinc", "-nostartfiles"],
 			"buildOptions": ["debugInfo"]
 		},
 		"release": {
 			"dflags": ["-betterC"],
+            "dflags-ldc": ["-disable-simplify-libcalls"],
 			"lflags": ["-nodefaultlibs", "-nostdlib", "-nostdinc", "-nostartfiles"],
 			"buildOptions": ["noBoundsCheck", "releaseMode", "optimize", "inline"]
 		},
 		"unittest": {
 			"dflags": ["-betterC"],
+            "dflags-ldc": ["-disable-simplify-libcalls"],
 			"buildOptions": ["noBoundsCheck", "debugInfo"],
 			"lflags": ["-nodefaultlibs", "-nostdlib", "-nostdinc", "-nostartfiles"]
 		}
