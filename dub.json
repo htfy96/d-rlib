@@ -23,7 +23,7 @@
 		"unittest": {
 			"dflags": ["-betterC"],
             "dflags-ldc": ["-disable-simplify-libcalls"],
-			"buildOptions": ["noBoundsCheck", "debugInfo"],
+			"buildOptions": ["noBoundsCheck", "debugInfo", "optimize", "inline", "releaseMode"],
 			"lflags": ["-nodefaultlibs", "-nostdlib", "-nostdinc", "-nostartfiles"]
 		}
 	},
